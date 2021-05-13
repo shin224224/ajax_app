@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   #end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index #追記する
+    post = Post.create(content: params[:content])
+    #redirect_to action: :index 追記する
+    render jason{ post: post }
   end
 end
